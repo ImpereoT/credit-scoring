@@ -1,7 +1,7 @@
 # 🏦 Credit Scoring API
 
 > Система предсказания вероятности дефолта по кредиту на основе реальных банковских данных.  
-> Включает веб-интерфейс, REST API, Docker-деплой и CI/CD через GitHub Actions.
+> Включает веб-интерфейс, REST API, MLflow эксперименты, Docker-деплой и CI/CD через GitHub Actions.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8.0-orange)
