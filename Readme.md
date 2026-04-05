@@ -44,6 +44,7 @@
 | ![low](screenshots/image1.png) | ![medium](screenshots/image2.png) | ![high](screenshots/image3.png) |
 | 2.3% вероятность | 21.4% вероятность | 30.3% вероятность |
 
+MLflow:
 ![MLflow](screenshots/experiments.png)
 
 ## 🗂️ Структура проекта
