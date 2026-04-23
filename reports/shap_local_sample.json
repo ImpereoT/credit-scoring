@@ -1,8 +1,10 @@
 {
+  "probability": 0.0082,
   "default_probability": 0.0082,
   "risk_level": "LOW",
   "decision": "\u041e\u0434\u043e\u0431\u0440\u0438\u0442\u044c",
   "explanation_method": "shap_tree_explainer",
+  "summary": "The model estimates default probability at 0.8%. Decision: \u041e\u0434\u043e\u0431\u0440\u0438\u0442\u044c; risk level: LOW. The strongest drivers are listed as features that increase or decrease estimated risk.",
   "interpretation_note": "Positive contributions push the applicant toward higher estimated default risk; negative contributions push the estimate lower. SHAP values are model explanations, not causal proof.",
   "top_positive_risk_drivers": [
     {
@@ -19,6 +21,38 @@
     }
   ],
   "top_negative_risk_drivers": [
+    {
+      "feature": "RevolvingUtilizationOfUnsecuredLines",
+      "value": 0.029689737,
+      "contribution": -0.5598705633365878,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "TotalLatePayments",
+      "value": 0.0,
+      "contribution": -0.28920666073051643,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "NumberRealEstateLoansOrLines",
+      "value": 1.0,
+      "contribution": -0.0977266371986331,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "HasAnyLatePayment",
+      "value": 0.0,
+      "contribution": -0.0968716387192018,
+      "direction": "decreases_risk"
+    },
+    {
+      "feature": "MonthlyIncome",
+      "value": 10121.0,
+      "contribution": -0.07983280034242325,
+      "direction": "decreases_risk"
+    }
+  ],
+  "top_feature_contributions": [
     {
       "feature": "RevolvingUtilizationOfUnsecuredLines",
       "value": 0.029689737,

@@ -43,12 +43,21 @@ def explain_prediction(
     rows = sorted(rows, key=lambda item: abs(item["contribution"]), reverse=True)
     positive = [item for item in rows if item["contribution"] > 0][:top_n]
     negative = [item for item in rows if item["contribution"] < 0][:top_n]
+    rounded_probability = round(probability, 4)
+    decision = decision_from_probability(probability)
+    level = risk_level(probability)
 
     return {
-        "default_probability": round(probability, 4),
-        "risk_level": risk_level(probability),
-        "decision": decision_from_probability(probability),
+        "probability": rounded_probability,
+        "default_probability": rounded_probability,
+        "risk_level": level,
+        "decision": decision,
         "explanation_method": method,
+        "summary": (
+            f"The model estimates default probability at {rounded_probability:.1%}. "
+            f"Decision: {decision}; risk level: {level}. The strongest drivers are "
+            "listed as features that increase or decrease estimated risk."
+        ),
         "interpretation_note": (
             "Positive contributions push the applicant toward higher estimated default "
             "risk; negative contributions push the estimate lower. SHAP values are "
@@ -56,6 +65,7 @@ def explain_prediction(
         ),
         "top_positive_risk_drivers": positive,
         "top_negative_risk_drivers": negative,
+        "top_feature_contributions": rows[:top_n],
         "per_feature_contribution": rows,
     }
 
